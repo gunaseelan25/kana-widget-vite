@@ -14,6 +14,7 @@ export default defineConfig({
   resolve: {
     alias: {
       'crypto': resolve(__dirname, 'node_modules/crypto-browserify'),
+      'near-api-js': 'near-api-js/dist/near-api-js.js',
     },
   },
   build: {
