@@ -4,8 +4,6 @@ import nodePolyfills from 'rollup-plugin-polyfill-node';
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
-// https://vitejs.dev/config/
-// eslint-disable-next-line import/no-default-export
 export default defineConfig({
   plugins: [react()],
   esbuild: {
@@ -25,8 +23,12 @@ export default defineConfig({
       ],
     },
     sourcemap: false,
+    commonjsOptions: {
+      include: [] // Add empty include array for commonjs options
+    }
   },
   optimizeDeps: {
+    disabled: false, // Explicitly enable deps optimization
     esbuildOptions: {
       define: {
         global: 'globalThis',
